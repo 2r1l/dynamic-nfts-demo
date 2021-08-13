@@ -510,10 +510,10 @@
     "@ethersproject/properties" "^5.4.0"
     "@ethersproject/strings" "^5.4.0"
 
-"@nomiclabs/hardhat-ethers@^2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-ethers/-/hardhat-ethers-2.0.2.tgz#c472abcba0c5185aaa4ad4070146e95213c68511"
-  integrity sha512-6quxWe8wwS4X5v3Au8q1jOvXYEPkS1Fh+cME5u6AwNdnI4uERvPlVjlgRWzpnb+Rrt1l/cEqiNRH9GlsBMSDQg==
+"@nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers":
+  version "0.3.0-beta.10"
+  resolved "https://registry.yarnpkg.com/hardhat-deploy-ethers/-/hardhat-deploy-ethers-0.3.0-beta.10.tgz#bccfcf635d380bbab3638960f6739fe4d396fc5f"
+  integrity sha512-TeyriUshRZ7XVHOjMsDtTozIrdwLf3Bw+oZRYNhXdG/eut5HeDhjUFPfRlG7TI1lSLvkcB5dt7OxOtPYKDOxTg==
 
 "@nomiclabs/hardhat-etherscan@^2.1.4":
   version "2.1.4"
@@ -539,7 +539,7 @@
     ethereumjs-util "^6.1.0"
     fs-extra "^7.0.1"
 
-"@nomiclabs/hardhat-waffle@^2.0.0":
+"@nomiclabs/hardhat-waffle@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.1.tgz#5d43654fba780720c5033dea240fe14f70ef4bd2"
   integrity sha512-2YR2V5zTiztSH9n8BYWgtv3Q+EL0N5Ltm1PAr5z20uAY4SkkfylJ98CIqt18XFvxTD5x4K2wKBzddjV9ViDAZQ==
@@ -2178,7 +2178,7 @@ cbor@^5.0.2:
     bignumber.js "^9.0.1"
     nofilter "^1.0.4"
 
-chai@^4.2.0:
+chai@^4.2.0, chai@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.3.4.tgz#b55e655b31e1eac7099be4c08c21964fce2e6c49"
   integrity sha512-yS5H68VYOCtN1cjfwumDSuzn/9c+yza4f3reKXlE5rUg7SFcCEy90gJvydNgOYtblyf4Zi6jIWRnXOgErta0KA==
@@ -3249,7 +3249,7 @@ ethereum-ens@^0.8.0:
     underscore "^1.8.3"
     web3 "^1.0.0-beta.34"
 
-ethereum-waffle@^3.0.0:
+ethereum-waffle@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/ethereum-waffle/-/ethereum-waffle-3.4.0.tgz#990b3c6c26db9c2dd943bf26750a496f60c04720"
   integrity sha512-ADBqZCkoSA5Isk486ntKJVjFEawIiC+3HxNqpJqONvh3YXBTNiRfXvJtGuAFLXPG91QaqkGqILEHANAo7j/olQ==
@@ -3482,7 +3482,7 @@ ethers@^4.0.0-beta.1, ethers@^4.0.32:
     uuid "2.0.1"
     xmlhttprequest "1.8.0"
 
-ethers@^5.0.0, ethers@^5.0.1, ethers@^5.0.2:
+ethers@^5.0.0, ethers@^5.0.1, ethers@^5.0.2, ethers@^5.4.4:
   version "5.4.4"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.4.4.tgz#35cce530505b84c699da944162195cfb3f894947"
   integrity sha512-zaTs8yaDjfb0Zyj8tT6a+/hEkC+kWAA350MWRp6yP5W7NdGcURRPMOpOU+6GtkfxV9wyJEShWesqhE/TjdqpMA==

@@ -6,6 +6,7 @@ pragma solidity ^0.8.0;
  * https://github.com/ourzora/core/blob/4b84f60e7b27a991b197af5dc00f14167d8750ed/contracts/ERC721.sol
  * - Changed tokenURI() method
  * - Added public mint() function
+ * - Added Base64 library
  */
 
 import "@openzeppelin/contracts/utils/Context.sol";
@@ -19,6 +20,8 @@ import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableMap.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
+
+import "./Base64.sol";
 
 /**
  * @title ERC721 Non-Fungible Token Standard basic implementation
@@ -36,6 +39,7 @@ contract ERC721 is
     using EnumerableSet for EnumerableSet.UintSet;
     using EnumerableMap for EnumerableMap.UintToAddressMap;
     using Strings for uint256;
+    using Base64 for string;
 
     // Equals to `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`
     // which can be also obtained as `IERC721Receiver(0).onERC721Received.selector`
@@ -93,7 +97,7 @@ contract ERC721 is
     /**
      * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
      */
-    constructor(string memory name_, string memory symbol_) public {
+    constructor(string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
     }
@@ -192,18 +196,20 @@ contract ERC721 is
         }
 
         bytes memory image = abi.encodePacked(
-          'data:image/svg+xml;utf8,<svg viewBox=\\"0 0 200 200\\"><text x=\\"20\\" y=\\"20\\">Token #', uint2str(tokenId)
+          '<svg viewBox="0 0 200 200" style="background-color:#000">\n  <text x="100" y="80" text-anchor="middle" fill="#fff">Token #', uint2str(tokenId)
         );
-        image = abi.encodePacked(image, '</text><text x=\\"20\\" y=\\"80\\">');
+        image = abi.encodePacked(image, '</text>\n  <text x="100" y="120" text-anchor="middle" fill="#fff">Block #');
         image = abi.encodePacked(image, uint2str(block.number));
-        image = abi.encodePacked(image, "</text></svg>");
+        image = abi.encodePacked(image, "</text>\n</svg>");
+        image = abi.encodePacked("data:image/svg+xml;base64,", string(image).encode64());
 
         // concat data and return the json as a string
         bytes memory json = abi.encodePacked(
-            'data:application/json;utf8,{"description":"This was minted for testing only.","name": "721-Test","external_link": "","image": "'
+            '{"description":"This was minted for testing only.","name": "721-Test","external_link": "","image": "'
         );
         json = abi.encodePacked(json, image);
         json = abi.encodePacked(json, '"}');
+        json = abi.encodePacked("data:application/json;base64,", string(json).encode64());
         return string(json);
      }
 

@@ -7,11 +7,11 @@ require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
 require("hardhat-deploy");
 
-module.exports = { solidity: "0.8.7" };
+module.exports = { solidity: "0.8.4" };
 
 const { ETHERSCAN_API_KEY, INFURA_API_KEY, PRIVATE_KEY } = process.env;
 
-const defaultNetwork = "localhost";
+const defaultNetwork = "hardhat";
 
 module.exports = {
   defaultNetwork,
@@ -38,7 +38,7 @@ module.exports = {
   solidity: {
     compilers: [
       {
-        version: "0.8.7",
+        version: "0.8.4",
         settings: {
           optimizer: {
             enabled: true,
